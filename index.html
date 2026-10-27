@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Marcha Test - Simulador de Caja de Cambios</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- ENCABEZADO -->
+  <header class="encabezado">
+    <h1>MARCHA TEST</h1>
+    <p>Simulador 3D de caja de cambios con sensores de finales de carrera</p>
+    <nav class="menu">
+      <button onclick="mostrarSeccion('inicio')">Inicio</button>
+      <button onclick="mostrarSeccion('tutorial')">Tutorial</button>
+      <button onclick="mostrarSeccion('dificultad')">Modos de juego</button>
+      <button onclick="mostrarSeccion('simulador')">Simulador</button>
+    </nav>
+  </header>
+
+  <!-- SECCION INICIO -->
+  <section id="inicio" class="seccion activa">
+    <h2>¿Qué es Marcha Test?</h2>
+    <p>
+      Marcha Test es un proyecto que consiste en una caja de cambios hecha en 3D,
+      con sensores de finales de carrera en cada posición de la palanca. Estos
+      sensores detectan en qué marcha está el conductor y esta página web funciona
+      como un simulador para practicar y aprender a cambiar de marcha correctamente,
+      primero con un tutorial, y luego poniendo a prueba tu oído en distintos
+      niveles de dificultad.
+    </p>
+
+    <div class="tarjetas">
+      <div class="tarjeta">
+        <h3> Tutorial</h3>
+        <p>Aprende paso a paso cómo poner el neutro y meter cada marcha hasta la quinta.</p>
+      </div>
+      <div class="tarjeta">
+        <h3> Cambios por sonido</h3>
+        <p>La página te habla en español y te dice qué marcha meter. Tú debes reaccionar rápido.</p>
+      </div>
+      <div class="tarjeta">
+        <h3> 5 niveles</h3>
+        <p>Desde Amateur hasta Clase Mundial. Entre más subes, menos tiempo tienes para reaccionar.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- SECCION TUTORIAL -->
+  <section id="tutorial" class="seccion">
+    <h2>Modo Tutorial</h2>
+    <p>Sigue los pasos y mira cómo se mueve la palanca en el dibujo. Presiona "Escuchar" para oír la instrucción en español.</p>
+
+    <div class="contenedor-simulador">
+      <!-- Dibujo tipo "H" de la caja de cambios -->
+      <div class="caja-cambios" id="caja-tutorial">
+        <div class="linea-h linea-vertical"></div>
+        <div class="linea-h linea-horizontal"></div>
+
+        <div class="posicion pos-1" id="tut-pos-1">1</div>
+        <div class="posicion pos-2" id="tut-pos-2">2</div>
+        <div class="posicion pos-3" id="tut-pos-3">3</div>
+        <div class="posicion pos-4" id="tut-pos-4">4</div>
+        <div class="posicion pos-5" id="tut-pos-5">5</div>
+        <div class="posicion pos-n" id="tut-pos-n">N</div>
+
+        <div class="palanca" id="palanca-tutorial"></div>
+      </div>
+
+      <div class="panel-info">
+        <h3 id="titulo-paso">Paso 1 de 6</h3>
+        <p id="texto-paso">Presiona "Empezar tutorial" para comenzar.</p>
+        <div class="botones-tutorial">
+          <button class="btn-azul" onclick="iniciarTutorial()">Empezar tutorial</button>
+          <button class="btn-negro" onclick="escucharPasoActual()">🔊 Escuchar</button>
+          <button class="btn-azul" onclick="siguientePaso()">Siguiente paso ➜</button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SECCION DIFICULTAD -->
+  <section id="dificultad" class="seccion">
+    <h2>Elige tu nivel de dificultad</h2>
+    <p>En este modo, tú NO ves qué marcha te piden en texto: solo la escuchas. Haz clic en la posición correcta de la palanca antes de que se acabe el tiempo.</p>
+
+    <div class="tarjetas">
+      <div class="tarjeta nivel" onclick="elegirNivel('amateur')">
+        <h3>Amateur</h3>
+        <p>8 segundos por cambio</p>
+      </div>
+      <div class="tarjeta nivel" onclick="elegirNivel('principiante')">
+        <h3>Principiante</h3>
+        <p>6 segundos por cambio</p>
+      </div>
+      <div class="tarjeta nivel" onclick="elegirNivel('semiprofesional')">
+        <h3>Semiprofesional</h3>
+        <p>4 segundos por cambio</p>
+      </div>
+      <div class="tarjeta nivel" onclick="elegirNivel('profesional')">
+        <h3>Profesional</h3>
+        <p>3 segundos por cambio</p>
+      </div>
+      <div class="tarjeta nivel" onclick="elegirNivel('mundial')">
+        <h3>Clase Mundial</h3>
+        <p>2 segundos por cambio</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- SECCION SIMULADOR / JUEGO -->
+  <section id="simulador" class="seccion">
+    <h2>Simulador</h2>
+    <p id="texto-nivel-actual">No has elegido un nivel todavía. Ve a "Modos de juego".</p>
+
+    <div class="contenedor-simulador">
+      <div class="caja-cambios" id="caja-juego">
+        <div class="linea-h linea-vertical"></div>
+        <div class="linea-h linea-horizontal"></div>
+
+        <div class="posicion pos-1" onclick="responder(1)">1</div>
+        <div class="posicion pos-2" onclick="responder(2)">2</div>
+        <div class="posicion pos-3" onclick="responder(3)">3</div>
+        <div class="posicion pos-4" onclick="responder(4)">4</div>
+        <div class="posicion pos-5" onclick="responder(5)">5</div>
+        <div class="posicion pos-n" onclick="responder('n')">N</div>
+
+        <div class="palanca" id="palanca-juego"></div>
+      </div>
+
+      <div class="panel-info">
+        <h3>Marcador</h3>
+        <p>Ronda: <span id="ronda-actual">0</span> / <span id="ronda-total">0</span></p>
+        <p>Aciertos: <span id="aciertos">0</span></p>
+        <p>Tiempo restante: <span id="tiempo-restante">--</span> s</p>
+        <div class="barra-tiempo">
+          <div class="barra-tiempo-relleno" id="barra-relleno"></div>
+        </div>
+        <p id="mensaje-juego">Elige un nivel para comenzar.</p>
+        <button class="btn-azul" onclick="empezarJuego()">Reiniciar nivel</button>
+      </div>
+    </div>
+  </section>
+
+  <script src="script.js"></script>
+</body>
+</html>

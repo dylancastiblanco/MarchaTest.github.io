@@ -1,0 +1,287 @@
+/* ===== COLORES DEL PROYECTO =====
+   Azul:  #1657d0
+   Azul oscuro: #0b2f70
+   Blanco: #ffffff
+   Negro:  #101010
+*/
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+body {
+  background-color: #101010;
+  color: #ffffff;
+}
+
+/* ENCABEZADO */
+.encabezado {
+  background-color: #0b2f70;
+  padding: 30px 20px;
+  text-align: center;
+  border-bottom: 5px solid #1657d0;
+}
+
+.encabezado h1 {
+  font-size: 42px;
+  letter-spacing: 3px;
+  color: #ffffff;
+}
+
+.encabezado p {
+  color: #cfd9f7;
+  margin-top: 5px;
+}
+
+.menu {
+  margin-top: 20px;
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.menu button {
+  background-color: #1657d0;
+  color: #ffffff;
+  border: 2px solid #ffffff;
+  padding: 10px 18px;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 15px;
+}
+
+.menu button:hover {
+  background-color: #ffffff;
+  color: #0b2f70;
+}
+
+/* SECCIONES  */
+.seccion {
+  display: none;
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 40px 20px;
+}
+
+.seccion.activa {
+  display: block;
+}
+
+.seccion h2 {
+  color: #1657d0;
+  margin-bottom: 15px;
+  border-bottom: 3px solid #1657d0;
+  display: inline-block;
+  padding-bottom: 5px;
+}
+
+.seccion p {
+  line-height: 1.6;
+  margin-bottom: 15px;
+  color: #e6e6e6;
+}
+
+/* TARJETAS */
+.tarjetas {
+  display: flex;
+  gap: 20px;
+  flex-wrap: wrap;
+  margin-top: 25px;
+}
+
+.tarjeta {
+  background-color: #1a1a1a;
+  border: 2px solid #1657d0;
+  border-radius: 10px;
+  padding: 20px;
+  flex: 1;
+  min-width: 220px;
+}
+
+.tarjeta h3 {
+  color: #ffffff;
+  margin-bottom: 10px;
+}
+
+.tarjeta.nivel {
+  text-align: center;
+  cursor: pointer;
+  transition: 0.2s;
+}
+
+.tarjeta.nivel:hover {
+  background-color: #1657d0;
+  transform: scale(1.03);
+}
+
+/* SIMULADOR / CAJA DE CAMBIOS*/
+.contenedor-simulador {
+  display: flex;
+  gap: 30px;
+  flex-wrap: wrap;
+  align-items: flex-start;
+  margin-top: 25px;
+}
+
+.caja-cambios {
+  position: relative;
+  width: 300px;
+  height: 240px;
+  background: linear-gradient(160deg, #1a1a1a, #0b0b0b);
+  border: 3px solid #1657d0;
+  border-radius: 14px;
+  box-shadow: 0 10px 25px rgba(22, 87, 208, 0.4);
+  perspective: 500px;
+}
+
+.linea-h {
+  position: absolute;
+  background-color: #1657d0;
+}
+
+.linea-vertical {
+  width: 4px;
+  height: 150px;
+  left: 148px;
+  top: 45px;
+}
+
+.linea-horizontal {
+  width: 210px;
+  height: 4px;
+  left: 45px;
+  top: 118px;
+}
+
+.posicion {
+  position: absolute;
+  width: 46px;
+  height: 46px;
+  border-radius: 50%;
+  background-color: #ffffff;
+  color: #0b2f70;
+  font-weight: bold;
+  font-size: 18px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 3px solid #1657d0;
+  cursor: pointer;
+  user-select: none;
+}
+
+.posicion:hover {
+  background-color: #1657d0;
+  color: #ffffff;
+}
+
+.pos-1 { left: 27px;  top: 10px; }
+.pos-3 { left: 127px; top: 10px; }
+.pos-5 { left: 227px; top: 10px; }
+.pos-2 { left: 27px;  top: 184px; }
+.pos-4 { left: 127px; top: 184px; }
+.pos-n {
+  left: 127px;
+  top: 97px;
+  background-color: #101010;
+  color: #ffffff;
+}
+
+.pos-n:hover {
+  background-color: #1657d0;
+}
+
+.palanca {
+  position: absolute;
+  width: 22px;
+  height: 22px;
+  border-radius: 50%;
+  background-color: #ff4d4d;
+  border: 3px solid #ffffff;
+  left: 138px;
+  top: 108px;
+  transition: left 0.4s ease, top 0.4s ease;
+  box-shadow: 0 6px 10px rgba(0,0,0,0.6);
+}
+
+.panel-info {
+  background-color: #1a1a1a;
+  border: 2px solid #1657d0;
+  border-radius: 10px;
+  padding: 20px;
+  flex: 1;
+  min-width: 260px;
+}
+
+.panel-info h3 {
+  color: #1657d0;
+  margin-bottom: 10px;
+}
+
+.botones-tutorial {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+  margin-top: 15px;
+}
+
+.btn-azul, .btn-negro {
+  border: none;
+  padding: 10px 16px;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 14px;
+  color: #ffffff;
+}
+
+.btn-azul {
+  background-color: #1657d0;
+}
+
+.btn-azul:hover {
+  background-color: #0b2f70;
+}
+
+.btn-negro {
+  background-color: #101010;
+  border: 2px solid #1657d0;
+}
+
+.btn-negro:hover {
+  background-color: #1657d0;
+}
+
+.barra-tiempo {
+  width: 100%;
+  height: 16px;
+  background-color: #101010;
+  border: 2px solid #1657d0;
+  border-radius: 8px;
+  margin: 10px 0;
+  overflow: hidden;
+}
+
+.barra-tiempo-relleno {
+  height: 100%;
+  width: 100%;
+  background-color: #1657d0;
+  transition: width 0.2s linear, background-color 0.2s;
+}
+
+#mensaje-juego {
+  font-weight: bold;
+  margin-top: 10px;
+}
+
+/*  PIE DE PAGINA */
+.pie {
+  text-align: center;
+  padding: 20px;
+  background-color: #0b2f70;
+  color: #cfd9f7;
+  margin-top: 30px;
+}
