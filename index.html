@@ -18,6 +18,8 @@
       <button onclick="mostrarSeccion('dificultad')">Modos de juego</button>
       <button onclick="mostrarSeccion('simulador')">Simulador</button>
     </nav>
+    <button id="btn-conectar" class="btn-azul" onclick="conectarArduino()">🔌 Conectar Arduino</button>
+    <span id="estado-arduino">🔴 Arduino sin conectar</span>
   </header>
 
   <!-- SECCION INICIO -->
@@ -145,5 +147,6 @@
   </section>
 
   <script src="script.js"></script>
+  <script src="conexion.js"></script>
 </body>
 </html>
